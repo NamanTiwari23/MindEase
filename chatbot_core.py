@@ -6,11 +6,12 @@ from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
+from dotenv import load_dotenv
 
 def initialize_llm():
     llm = ChatGroq(
         temperature=0,
-        groq_api_key="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",
+        groq_api_key=os.getenv("GROQ_API_KEY"),
         model_name="meta-llama/llama-4-scout-17b-16e-instruct"
     )
     return llm
